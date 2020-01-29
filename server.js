@@ -22,9 +22,14 @@ app.use(cors());
 
 app.get('/', (req, res) => { 
     db.select('*').from('members')
-        .then(member => {
-            res.json(member)
-        });
+        .then(members => {
+            res.json(
+               members.map(member => {
+                return Object.values(member)
+                })
+            )
+        })
+            
 });
 
 app.listen(3000, () => {
