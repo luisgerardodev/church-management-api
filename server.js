@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
         .then(members => {
             res.json(
                members.map(member => {
-                return Object.values(member)
+                return member
                 })
             )
         })
